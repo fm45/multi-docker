@@ -21,3 +21,4 @@ after_success:
   - docker push fabien45/multi-nginx
   - docker push fabien45/multi-server
   - docker push fabien45/multi-worker
+  
