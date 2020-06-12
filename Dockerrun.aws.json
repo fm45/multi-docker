@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+        {
+            "name": "client",
+            "image": "fabien45/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "fabien45/multi-server",
+            "host": "api",
+            "essential": false
+        }, {
+            "name": "worker",
+            "image": "fabien45/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        }, {
+            "name": "nginx",
+            "image": "fabien45/multi-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+        }
+    ]
+}
